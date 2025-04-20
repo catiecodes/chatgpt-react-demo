@@ -153,16 +153,24 @@ button:disabled {
 
 .response pre {
   background-color: #111;
-  padding: 1rem;
+  padding: 0rem;
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 0.75rem 0;
+  display: inline;;
 }
 
 .response code {
   font-family: 'Fira Code', monospace;
   color: #62dafc;
-  font-size: 0.95rem;
+  /* font-size: 0.95rem; */
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 0rem;
+}
+
+pre {
+  padding: 0rem !important;
 }
 
 /* Tighten spacing between p and pre or vice versa */

@@ -35,8 +35,24 @@ function App() {
           messages: [
             {
               role: "system",
-              content:
-                "Explain this for a eighth-grade student with clear line breaks between ideas. Do not write any code unless you are shoing the syntax of something, just explain in plain English. Do not tell the user how to fix the code. If you need to show syntax, wrap it in triple backticks like a Markdown code block. Do not include explanation in the same block. All prompts and responses will be JavaScript. If the user asks something that is not about code, kindly remind them that you are a coding buddy.",
+              content: `Explain this for an eighth-grade student with clear line breaks between ideas. Do not write any code unless you are showing the syntax of something — just explain in plain English. Do not tell the user how to fix the code.
+
+If you need to show syntax, wrap it in triple backticks like a Markdown code block. Do not include explanation in the same block.
+
+All prompts and responses will be JavaScript. If the user asks something that is not about code, kindly remind them that you are a coding buddy.
+
+When including full syntax examples, always:
+1. Start a new line with three backticks followed by js:
+\`\`\`js
+
+2. Put the code on the next line.
+
+3. Close the code block with three backticks on its own line:
+\`\`\`
+
+Never write code blocks inline, and never include them directly after a colon or inside a sentence. Always place code blocks on their own lines before or after any explanation.
+
+Only use dot notation when accessing values in objects.`,
             },
             {
               role: "user",
@@ -54,10 +70,26 @@ function App() {
           },
         }
       );
-      setResponse(res.data.choices[0].message.content); // Optional: show the response
-      setPrompt({
-        prompt: "",
-      });
+      setResponse(
+        res.data.choices[0].message.content
+          // Fix list formatting
+          .replace(/-\s*`([^`]+)`\s*\n\s*:/g, "- `$1`:")
+          // Join broken lines unless they are inside code blocks
+          .replace(/([^\n])\n(?=[^\n`])/g, "$1 ")
+          // Remove newline before inline code
+          .replace(/\n(?=\s*`)/g, "")
+          // Remove bad newline after inline code
+          .replace(/`(\w+)`\n/g, "`$1` ")
+          // Normalize properly formatted code blocks
+          .replace(/```(?:\s*javascript)?\n/g, "```js\n")
+          // ⚠️ Remove accidental inline code blocks like: Here's code:```code```
+          .replace(/([a-zA-Z0-9.,:!?])```(.*?)```/gs, "$1\n```js\n$2\n```")
+          // Clean up lingering "js" as text
+          .replace(/\n?js\s*/g, "")
+      );
+      // setPrompt({
+      //   prompt: "",
+      // });
     } catch (err) {
       console.error("API error:", err);
     } finally {
@@ -110,29 +142,48 @@ function App() {
                     {children}
                   </li>
                 ),
-                code({ inline, children, ...props }) {
-                  return inline ? (
-                    <code
-                      style={{
-                        backgroundColor: "#222",
-                        padding: "2px 6px",
-                        borderRadius: "4px",
-                        fontFamily: "Fira Code, monospace",
-                        color: "#62dafc",
-                      }}
-                    >
-                      {children}
-                    </code>
-                  ) : (
+                code({ inline, children, className }) {
+                  const codeString = Array.isArray(children)
+                    ? children.join("")
+                    : String(children).trim();
+
+                  if (inline) {
+                    return (
+                      // <span style={{ display: "inline" }}>
+                      <code
+                        style={{
+                          backgroundColor: "#222",
+                          padding: "2px 6px",
+                          borderRadius: "4px",
+                          fontFamily: "Fira Code, monospace",
+                          color: "#62dafc",
+                          fontSize: "0.95rem",
+                        }}
+                      >
+                        {codeString}
+                      </code>
+                      // </span>
+                    );
+                  }
+
+                  return (
                     <pre
                       style={{
                         backgroundColor: "#111",
                         padding: "1rem",
                         borderRadius: "0.5rem",
                         overflowX: "auto",
+                        marginBottom: "1.5rem",
                       }}
                     >
-                      <code>{children}</code>
+                      <code
+                        style={{
+                          fontFamily: "Fira Code, monospace",
+                          color: "#62dafc",
+                        }}
+                      >
+                        {codeString}
+                      </code>
                     </pre>
                   );
                 },
