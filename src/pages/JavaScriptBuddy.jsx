@@ -108,6 +108,8 @@ function JavaScriptBuddy() {
           <li>Understand code</li>
           <li>Learn syntax</li>
           <li>Debug code</li>
+          <li>Get more practice exercises for a specific skill</li>
+          <li>Help with pseudocoding</li>
         </ul>
       </div>
       <form action="#">
