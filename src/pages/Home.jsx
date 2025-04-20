@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="page-wrapper">
       <h3>
-        Welcome! This is a trauma-informed space where you can get support with
+        Welcome!<br/> This is a trauma-informed space where you can get support with
         JavaScript, as well as asking AnnieCannons related questions
       </h3>
       <div className="buttons-wrapper">
