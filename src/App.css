@@ -374,6 +374,12 @@ pre {
     padding: 1rem;
     font-size: 0.95rem;
   }
+  .buttons-wrapper {
+    flex-direction: column;
+  }
+  .buttons-wrapper .journey{
+    margin-top: 1rem;
+  }
 }
 
 
