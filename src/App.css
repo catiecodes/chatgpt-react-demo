@@ -1,34 +1,135 @@
-.label-div-wrapper {
-  display: flex;
-  flex-direction: column;
-  
+/* App.css – techy, modern, clean */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
 }
 
 .page-wrapper {
-  /* width: 30%; */
-  margin: 20rem auto;
+  max-width: 700px;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  background-color: #1e1e1e;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 1px solid #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #62dafc;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  text-align: left;
+  margin: 1rem auto 2rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  color: #ccc;
+}
+
+ul li {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.li-wrapper {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: left;
 }
 
 form {
-  width: 50%;
-  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#submit {
-  width: 30%;
-  margin: 2rem auto;
-  background-color: darkblue;
-  color: white;
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  max-width: 550px;
+  height: 130px;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #444;
+  font-size: 1rem;
+  background-color: #121212;
+  color: #eee;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+textarea:focus {
+  border-color: #62dafc;
+  outline: none;
+}
+
+button {
+  background-color: #62dafc;
+  color: #1e1e1e;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #4db8d3;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .response-wrapper {
-  width: 60%;
-  margin: 2rem auto;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.response-wrapper h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #62dafc;
+  text-align: center;
 }
 
 .response {
-  border: 1px solid darkblue;
-  margin: 1rem auto;
-  border-radius: 20px;
-  padding: 1rem;
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
 }

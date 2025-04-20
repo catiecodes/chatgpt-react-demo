@@ -9,7 +9,6 @@ function App() {
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   const apiKey = import.meta.env.VITE_OPENAI_KEY;
   console.log(apiKey, "ApiKey");
 
@@ -20,7 +19,7 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
     // if (userInput.includes("addEventListner")) {
     //   setResponse(
     //     "This is a known React error that happens when server-rendered HTML doesn’t match the client. Try using useEffect instead of useLayoutEffect, or check that your DOM isn’t changing between server and client render."
@@ -61,9 +60,8 @@ function App() {
     } catch (err) {
       console.error("API error:", err);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
-
   }
 
   // useEffect(() => {
@@ -72,9 +70,21 @@ function App() {
 
   return (
     <div className="page-wrapper">
+      <h1>Your Coding Buddy</h1>
+      <div className="li-wrapper">
+        <p>
+          Your buddy is here to help with your coding journey. Things we can do
+          together:
+        </p>
+        <ul>
+          <li>Understand code</li>
+          <li>Learn syntax</li>
+          <li>Debug code</li>
+        </ul>
+      </div>
       <form action="#">
         <div className="label-div-wrapper">
-          <label htmlFor="prompt">Let's Chat!</label>
+          <label htmlFor="prompt">What can I help you with?</label>
           <textarea
             id="prompt"
             name="prompt"
@@ -84,16 +94,18 @@ function App() {
             onChange={handleChange}
           />
           <button onClick={handleSubmit} type="submit" id="submit">
-          {loading ? "Loading..." : "Submit"}
+            {loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </form>
-      <div className="response-wrapper">
-        <h3>Response</h3>
-        <div className="response" style={{ whiteSpace: "pre-wrap" }}>
-          <p>{response}</p>
+      {response ? (
+        <div className="response-wrapper">
+          <h3>Response</h3>
+          <div className="response" style={{ whiteSpace: "pre-wrap" }}>
+            <p>{response}</p>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
