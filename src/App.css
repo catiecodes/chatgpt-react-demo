@@ -133,3 +133,43 @@ button:disabled {
   color: #ccc;
   line-height: 1.6;
 }
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .page-wrapper {
+    margin: 2rem 1rem;
+    padding: 2rem 1.25rem;
+    border-radius: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  ul {
+    padding-left: 1rem;
+    font-size: 0.95rem;
+  }
+
+  textarea {
+    width: 300px;
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+  }
+
+  .response-wrapper h3 {
+    font-size: 1.3rem;
+  }
+
+  .response {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+}
