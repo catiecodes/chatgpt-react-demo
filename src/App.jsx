@@ -1,25 +1,44 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import JavaScriptBuddy from './pages/JavaScriptBuddy';
-import AnnieCannonsBuddy from './pages/AnnieCannonsBuddy';
-
+import { useState } from "react";
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import JavaScriptBuddy from "./pages/JavaScriptBuddy";
+import AnnieCannonsBuddy from "./pages/AnnieCannonsBuddy";
+import "./App.css";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/javascript-buddy">JavaScript Buddy</Link>
-          </li>
-          <li>
-            <Link to="/anniecannons-buddy">AnnieCannons Buddy</Link>
-          </li>
-        </ul>
+      <nav className="navbar">
+        <div className="nav-container">
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+          <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+            <li>
+              <NavLink to="/" onClick={() => setMenuOpen(false)}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/javascript-buddy" onClick={() => setMenuOpen(false)}>
+                JavaScript Buddy
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/anniecannons-buddy" onClick={() => setMenuOpen(false)}>
+                AnnieCannons Buddy
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </nav>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/javascript-buddy" element={<JavaScriptBuddy />} />

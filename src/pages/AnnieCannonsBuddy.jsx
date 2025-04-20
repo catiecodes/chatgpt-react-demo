@@ -98,16 +98,20 @@ function AnnieCannonsBuddy() {
 
   return (
     <div className="page-wrapper">
-      <h1>Your AnnieCannos Buddy</h1>
+      <h1>Your AnnieCannons Buddy</h1>
       <div className="li-wrapper">
         <p>
           Your buddy is here to help with your AnnieCannons journey. Things we can do
           together:
         </p>
         <ul>
-          <li>Answer questions about Gusto</li>
+          <li>How to use platforms like Gusto, Notion, Slack, Zoom, and Google Workspace</li>
+          <li>Emotional support related to learning (e.g., motivation, imposter syndrome, burnout)</li>
+          <li>Study tips, time management, or tech-related anxiety</li>
           <li>Know who to reach out to if you need help with something</li>
-          <li>Give pep talks</li>
+          <li>Peer collaboration, communication, and professionalism</li>
+          <li>Give pep talks on things like coding and learning</li>
+          <li>Understanding how the AnnieCannons program works</li>
         </ul>
       </div>
       <form action="#">
