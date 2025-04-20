@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="page-wrapper">
-      <h1>Your Coding Buddy</h1>
+      <h1>Your JavaScript Coding Buddy</h1>
       <div className="li-wrapper">
         <p>
           Your buddy is here to help with your coding journey. Things we can do
