@@ -20,6 +20,16 @@ function App() {
   async function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
+    const userQuestion = prompt.prompt.toLowerCase();
+
+  // 👇 Custom stock answer check
+  if (userQuestion.includes("log my hours") || userQuestion.includes("clock out") || userQuestion.includes("breaks") || userQuestion.includes("log hours") || userQuestion.includes("gusto hours"))  {
+    setResponse(
+      "You can only log 5 hours per day, during class hours. You must clock out for your 30-minute break. The two 15-minute breaks are paid, and you can stay clocked in during those."
+    );
+    setLoading(false);
+    return;
+  }
     // if (userInput.includes("addEventListner")) {
     //   setResponse(
     //     "This is a known React error that happens when server-rendered HTML doesn’t match the client. Try using useEffect instead of useLayoutEffect, or check that your DOM isn’t changing between server and client render."
@@ -52,7 +62,9 @@ When including full syntax examples, always:
 
 Never write code blocks inline, and never include them directly after a colon or inside a sentence. Always place code blocks on their own lines before or after any explanation.
 
-Only use dot notation when accessing values in objects.`,
+Only use dot notation when accessing values in objects.
+
+`,
             },
             {
               role: "user",
