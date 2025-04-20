@@ -9,12 +9,11 @@ function Home() {
         JavaScript, as well as asking AnnieCannons related questions
       </h3>
       <div className="buttons-wrapper">
-        <Link to="/anniecannons-buddy" className="journey ac-journey">
-          I have an AnnieCannons related question
-        </Link>
-
         <Link to="/javascript-buddy" className="journey js-journey">
           I have a JavaScript related question
+        </Link>
+        <Link to="/anniecannons-buddy" className="journey ac-journey">
+          I have an AnnieCannons related question
         </Link>
       </div>
     </div>
