@@ -190,7 +190,7 @@ button:disabled {
   }
 
   textarea {
-    width: 100%;
+    width: 300px;
     font-size: 0.95rem;
     padding: 0.75rem;
   }
