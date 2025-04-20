@@ -11,6 +11,48 @@ body {
   padding: 0;
 }
 
+/* Navbar styling */
+nav {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-bottom: 0px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #333;
+  color: #62dafc;
+}
+
+
+a {
+  color: lightblue;
+}
+
 .page-wrapper {
   max-width: 700px;
   margin: 5rem auto;
