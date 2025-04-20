@@ -1,4 +1,4 @@
-/* App.css – techy, modern, clean */
+/* App.css – dark, clean, and consistent */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -32,25 +32,26 @@ p {
   font-size: 1.1rem;
   color: #aaa;
   margin-bottom: 1.5rem;
-}
-
-ul {
-  text-align: left;
-  margin: 1rem auto 2rem;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-  color: #ccc;
-}
-
-ul li {
-  margin: 0.4rem 0;
-  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .li-wrapper {
   width: 60%;
   margin: 2rem auto;
   text-align: left;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0 1.5rem;
+  list-style-position: outside;
+  color: #ccc;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 form {
@@ -80,7 +81,6 @@ textarea {
   resize: vertical;
   transition: border-color 0.3s ease;
   margin-bottom: 1.5rem;
-  margin-top: 0.5rem;
 }
 
 textarea:focus {
@@ -96,7 +96,7 @@ button {
   border-radius: 2rem;
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
@@ -128,27 +128,48 @@ button:disabled {
   border: 1px solid #333;
   border-radius: 1rem;
   padding: 1.5rem;
-  white-space: pre-wrap;
   font-size: 1rem;
   color: #ccc;
   line-height: 1.6;
+  white-space: normal;
 }
 
-.response ol {
+/* Markdown inside the response */
+.response p {
+  margin: 0.75rem 0;
+}
+
+.response ol,
+.response ul {
   padding-left: 1.5rem;
-  margin-left: 0;
+  margin: 1rem 0;
   list-style-position: outside;
 }
 
 .response li {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+  margin-bottom: 0.75rem;
 }
 
-.response li p {
-  display: inline;
-  margin: 0;
-  padding: 0;
+.response pre {
+  background-color: #111;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+
+.response code {
+  font-family: 'Fira Code', monospace;
+  color: #62dafc;
+  font-size: 0.95rem;
+}
+
+/* Tighten spacing between p and pre or vice versa */
+.response p + pre {
+  margin-top: 0.5rem;
+}
+.response pre + p {
+  margin-top: 0.5rem;
 }
 
 /* Mobile styles */
@@ -163,13 +184,12 @@ button:disabled {
     font-size: 2rem;
   }
 
-  ul {
-    padding-left: 1rem;
-    font-size: 0.95rem;
+  .li-wrapper {
+    width: 100%;
   }
 
   textarea {
-    width: 300px;
+    width: 100%;
     font-size: 0.95rem;
     padding: 0.75rem;
   }

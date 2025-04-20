@@ -104,14 +104,38 @@ function App() {
           <h3>Response</h3>
           <div className="response">
             <ReactMarkdown
-              
               components={{
                 li: ({ children }) => (
-                  <li style={{ marginBottom: "0.5rem" }}>{children}</li>
+                  <li style={{ marginBottom: "0.5rem", lineHeight: "1.6" }}>
+                    {children}
+                  </li>
                 ),
-                p: ({ children }) => (
-                  <p style={{ display: "inline" }}>{children}</p>
-                ),
+                code({ inline, children, ...props }) {
+                  return inline ? (
+                    <code
+                      style={{
+                        backgroundColor: "#222",
+                        padding: "2px 6px",
+                        borderRadius: "4px",
+                        fontFamily: "Fira Code, monospace",
+                        color: "#62dafc",
+                      }}
+                    >
+                      {children}
+                    </code>
+                  ) : (
+                    <pre
+                      style={{
+                        backgroundColor: "#111",
+                        padding: "1rem",
+                        borderRadius: "0.5rem",
+                        overflowX: "auto",
+                      }}
+                    >
+                      <code>{children}</code>
+                    </pre>
+                  );
+                },
               }}
             >
               {response}
