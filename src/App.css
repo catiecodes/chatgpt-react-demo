@@ -134,6 +134,23 @@ button:disabled {
   line-height: 1.6;
 }
 
+.response ol {
+  padding-left: 1.5rem;
+  margin-left: 0;
+  list-style-position: outside;
+}
+
+.response li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.response li p {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
 /* Mobile styles */
 @media (max-width: 600px) {
   .page-wrapper {

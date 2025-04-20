@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import ReactMarkdown from "react-markdown";
 
 function App() {
   const [prompt, setPrompt] = useState({
@@ -10,7 +11,6 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const apiKey = import.meta.env.VITE_OPENAI_KEY;
-  console.log(apiKey, "ApiKey");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +36,7 @@ function App() {
             {
               role: "system",
               content:
-                "Explain this for a eighth-grade student with clear line breaks between ideas. Do not write any code unless you are shoing the syntax of something, just explain in plain English. Do not tell the user how to fix the code.",
+                "Explain this for a eighth-grade student with clear line breaks between ideas. Do not write any code unless you are shoing the syntax of something, just explain in plain English. Do not tell the user how to fix the code. If you need to show syntax, wrap it in triple backticks like a Markdown code block. Do not include explanation in the same block. All prompts and responses will be JavaScript",
             },
             {
               role: "user",
@@ -44,7 +44,7 @@ function App() {
             },
           ],
           temperature: 0.7,
-          max_tokens: 500, 
+          max_tokens: 500,
         },
 
         {
@@ -102,8 +102,20 @@ function App() {
       {response ? (
         <div className="response-wrapper">
           <h3>Response</h3>
-          <div className="response" style={{ whiteSpace: "pre-wrap" }}>
-            <p>{response}</p>
+          <div className="response">
+            <ReactMarkdown
+              
+              components={{
+                li: ({ children }) => (
+                  <li style={{ marginBottom: "0.5rem" }}>{children}</li>
+                ),
+                p: ({ children }) => (
+                  <p style={{ display: "inline" }}>{children}</p>
+                ),
+              }}
+            >
+              {response}
+            </ReactMarkdown>
           </div>
         </div>
       ) : null}
