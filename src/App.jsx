@@ -25,7 +25,7 @@ function App() {
   // 👇 Custom stock answer check
   if (userQuestion.includes("log my hours") || userQuestion.includes("clock out") || userQuestion.includes("breaks") || userQuestion.includes("log hours") || userQuestion.includes("gusto hours"))  {
     setResponse(
-      "You can only log 5 hours per day, during class hours. You must clock out for your 30-minute break. The two 15-minute breaks are paid, and you can stay clocked in during those."
+      "You can log 5 hours per day, during class hours. You must clock out for your 30-minute break. The two 15-minute breaks are paid, and you can stay clocked in during those."
     );
     setLoading(false);
     return;
