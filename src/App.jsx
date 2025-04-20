@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import JavaScriptBuddy from "./pages/JavaScriptBuddy";
 import AnnieCannonsBuddy from "./pages/AnnieCannonsBuddy";
+import TipsAndInstructions from "./pages/TipsAndInstructions";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,11 @@ function App() {
                 AnnieCannons Buddy
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/tips-and-instructions" onClick={() => setMenuOpen(false)}>
+              Tips + Instructions
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
@@ -43,6 +49,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/javascript-buddy" element={<JavaScriptBuddy />} />
         <Route path="/anniecannons-buddy" element={<AnnieCannonsBuddy />} />
+        <Route path="/tips-and-instructions" element={<TipsAndInstructions />} />
       </Routes>
     </div>
   );

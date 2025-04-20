@@ -84,6 +84,11 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
+h3 {
+  width: 60%;
+  margin: auto;
+}
+
 p {
   font-size: 1.1rem;
   color: #aaa;
@@ -110,9 +115,6 @@ li {
   line-height: 1.6;
 }
 
-form {
-  
-}
 
 .label-div-wrapper {
   display: flex;
@@ -243,25 +245,12 @@ pre {
 .journey {
   height: 200px;
   width: 200px;
-  border: 1px solid white;
+  font-weight: bolder;
   border-radius: 20px;
   padding: 2rem;
-  margin: 2rem auto;
   display: flex;
   align-items: center;
   flex-direction: row;
-}
-
-.journey {
-  font-weight: bolder;
-  /* display: block;
-  width: 100%;
-  max-width: 500px;
-  padding: 1.2rem 2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center; */
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -279,11 +268,74 @@ pre {
 
 .buttons-wrapper {
   display: flex;
-  /* flex-direction: column; */
-  gap: 1.5rem;
   align-items: center;
   margin-top: 3rem;
+  justify-content: space-evenly;
 }
+
+/* Tips + Instructions Page */
+.tips-wrapper {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 1rem;
+  line-height: 1.7;
+}
+
+.tips-wrapper h1 {
+  font-size: 2.2rem;
+  color: #62dafc;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tips-wrapper section {
+  margin-bottom: 3rem;
+}
+
+.tips-wrapper h2 {
+  color: #fceee3;
+  margin-bottom: 1rem;
+}
+
+.tips-wrapper ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tips-wrapper li {
+  margin-bottom: 0.5rem;
+}
+
+.buddy-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+  background: #62dafc;
+  color: #1e1e1e;
+}
+
+
+
+.buddy-link:hover {
+  background: #4db8d3;
+}
+
+/* .buddy-link.ac {
+  background: #39424e;
+  color: #fceee3;
+}
+
+.buddy-link.ac:hover {
+  background: #4a5363;
+} */
+
 
 /* Mobile styles */
 @media (max-width: 600px) {
